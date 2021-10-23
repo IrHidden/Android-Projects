@@ -1,0 +1,2 @@
+rootProject.name = "ContactPicker_Java"
+include ':app'
