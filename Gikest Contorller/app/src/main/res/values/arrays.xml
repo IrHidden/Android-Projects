@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string-array name="settings_list_preference_values">
+        <item>sms</item>
+        <item>internet</item>
+    </string-array>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="Relays">
+        <item>Relay 1</item>
+        <item>Relay 2</item>
+        <item>Relay 3</item>
+        <item>Relay 4</item>
+        <item>Relay 5</item>
+    </string-array>
+
+</resources>

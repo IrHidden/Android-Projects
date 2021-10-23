@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#128C7E</color>
+    <color name="colorPrimaryDark">#B0BEC5</color>
+    <color name="colorPrimaryLight">#25D366</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="dashboard_air_condition">#3CAEA3</color>
+    <color name="dashboard_light">#F6D55C</color>
+    <color name="dashboard_humidity">#20639B</color>
+    <color name="dashboard_temperature">#FF5722</color>
+    <color name="dashboard_sensors" >#03A9F4</color>
+    <color name="dialog_cancel_bgcolor">#F44336</color>
+    <color name="dialog_ok_bgcolor">#009688</color>
+    <color name="Turquoise">#00CED1</color>
+    <color name="Cadet">#5F9EA0</color>
+    <color name="red">#FF0000</color>
+    <color name="maron">#800000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Transparent">#00FFFFFF</color>
+    <color name="Theme_Transparent">#40000000</color>
+    <color name="Theme_Color">#73C6B6</color>
+
+
+</resources>

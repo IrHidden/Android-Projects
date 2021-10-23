@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:statusBarBackground="#FFFFFF"
+    android:background="@drawable/wallpaper"
+    tools:context=".activity.Logs_Activity_Java">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/imageView11"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wallpaper" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@+id/imageView11"
+        app:layout_anchorGravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/theme_normal">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/white_setting_gif"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:shadowColor="#45B39D"
+                    android:text="Setting"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/data_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/theme_normal"
+                    app:srcCompat="@drawable/white_data_png" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp" />
+
+                <Switch
+                    android:id="@+id/switch_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/normalbtn_theme_pressstate"
+                    android:enabled="false"
+                    android:hint="ON for Wifi, OFF for Sms"
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:shadowColor="#FFFFFF"
+                    android:text="Transfer With Wifi"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <include layout="@layout/divider_fragment_xml"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/dataclean_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/theme_normal"
+                    app:srcCompat="@drawable/white_dataclean_png" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/btn_dataclean"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+                    android:background="@drawable/normalbtn_theme_pressstate"
+                    android:text="@string/Delete_App_Data"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/divider_fragment_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/sim_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/theme_normal"
+                    app:srcCompat="@drawable/white_sim_png" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp" />
+
+                <EditText
+                    android:id="@+id/txt_phonenum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="+989xxxxxxx"
+                    android:inputType="phone"
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txt_targetphonenum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="Target 09xxxxxxx"
+                    android:inputType="phone"
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btn_addphonenum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginRight="55dp"
+                    android:background="@drawable/normalbtn_theme_pressstate"
+                    android:text="Add Phone Number"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btn_deletephonenum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginRight="55dp"
+                    android:background="@drawable/normalbtn_theme_pressstate"
+                    android:text="Delete Phone Number"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/divider_fragment_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/pass_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/theme_normal"
+                    app:srcCompat="@drawable/white_pass_png" />
+
+                <EditText
+                    android:id="@+id/txt_old_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="@string/Old_Password"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txt_newpass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="@string/New_Password"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btn_dataclean3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginRight="55dp"
+                    android:background="@drawable/normalbtn_theme_pressstate"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

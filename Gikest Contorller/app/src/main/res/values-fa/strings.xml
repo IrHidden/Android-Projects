@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">کنترلر گلخانه</string>
+    <string name="Sensors">سنسورها</string>
+    <string name="Relays">رله ها</string>
+    <string name="Temperature">دما</string>
+    <string name="Humidity">رطوبت</string>
+    <string name="Timer">تایمر</string>
+    <string name="Auto">اتوماتیک</string>
+    <string name="None_Sensor">بدون سنسور</string>
+    <string name="Old_Password">رمز قبلی</string>
+    <string name="New_Password">رمز جدید</string>
+    <string name="Add_New_User">اضافه کردن کاربر جدید</string>
+    <string name="Delete_App_Data">پاک کردن اطلاعات برنامه</string>
+    <string name="Data_Transfer_Type">نوع انتقال داده</string>
+    <string name="Heater">گرماساز</string>
+    <string name="None_Mode">قطع</string>
+    <string name="Humidity_Sensor_View">رطوبت:</string>
+    <string name="Temperature_Sensor_View">دما:</string>
+    <string name="Edit">تغییر</string>
+    <string name="Vaporizer">بخارساز</string>
+    <string name="Circulator">تهویه</string>
+    <string name="GreenHouse_Controller">کنترلر گلخانه</string>
+    <string name="Data_Request_txt">درخواست دریافت اطلاعات از دستگاه مرکزی ارسال شد!</string>
+    <string name="light">Light</string>
+    <string name="realy_edit">Realy Edit</string>
+    <string name="relay_number">Relay Number:</string>
+    <string name="realy_type">Realy Type</string>
+    <string name="mechanism">Mechanism</string>
+    <string name="type">Type</string>
+    <string name="apply">Apply</string>
+    <string name="timer_type">Timer Type</string>
+    <string name="connected_sensors">Connected Sensors</string>
+    <string name="start_time">Start Time</string>
+    <string name="set_start_time">Set Start Time</string>
+    <string name="on_duration">ON ِDuration</string>
+    <string name="off_duration">OFF Duration</string>
+    <string name="end_time">End Time</string>
+    <string name="set_end_time">Set End Time</string>
+    <string name="set_on_time">Set ON Time</string>
+    <string name="set_off_time">Set OFF Time</string>
+    <string name="EmailError">There are no email clients installed.</string>
+
+
+</resources>

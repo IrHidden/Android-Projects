@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
+    tools:context=".activity.RelayEdit_Activity_Java">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                tools:targetApi="ice_cream_sandwich" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/theme_normal">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/white_relayedit_icon_gif"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:shadowColor="#45B39D"
+                    android:text="@string/realy_edit"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <EditText
+                android:id="@+id/txt_phonenum2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:enabled="true"
+                android:hint="+98xxxxxxx"
+                android:inputType="phone"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/normalbtn_theme_pressstate">
+
+                <Button
+                    android:id="@+id/txt_relayedit_relaynum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/Transparent"
+                    android:text="@string/relay_number"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/sp_relayedit_relaynum"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.05"
+                    android:entries="@array/Relays"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/divider_fragment_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/type"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/rbg_realy_edit_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginEnd="35dp"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/rb_relayedit_heater"
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radiobtn_theme_pressstate"
+                            android:text="@string/Heater"
+                            android:textColor="@color/White"
+                            android:textSize="20sp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/rb_relayedit_vapor"
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radiobtn_theme_pressstate"
+                            android:text="@string/Vaporizer"
+                            android:textColor="@color/White"
+                            android:textSize="20sp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/rb_relayedit_circulator"
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radiobtn_theme_pressstate"
+                            android:text="@string/Circulator"
+                            android:textColor="@color/White"
+                            android:textSize="20sp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/rb_relayedit_light"
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radiobtn_theme_pressstate"
+                            android:text="@string/light"
+                            android:textColor="@color/White"
+                            android:textSize="20sp" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/divider_fragment_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/mechanism"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <ToggleButton
+                    android:id="@+id/btn_relayedit_relaymode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="35dp"
+                    android:background="@drawable/normalbtn_theme_pressstate"
+                    android:checked="true"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textOff="@string/Timer"
+                    android:textOn="@string/Auto"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/divider_fragment_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/layout_realyedit_auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/connected_sensors"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <include
+                    layout="@layout/relayedit_auto_fragment_xml"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_realyedit_timer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/theme_normal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/timer_type"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <include layout="@layout/relayedit_timer_fragment_xml" />
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/divider_fragment_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_realyedit_apply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:background="@drawable/normalbtn_theme_pressstate"
+                android:text="@string/apply"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="35dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

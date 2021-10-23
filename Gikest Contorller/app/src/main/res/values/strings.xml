@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">GreenHouse Controller</string>
+    <string name="Sensors">Sensors</string>
+    <string name="Relays">Relays</string>
+    <string name="Temperature">Temperature</string>
+    <string name="Humidity">Humidity</string>
+    <string name="Timer">Timer</string>
+    <string name="Auto">Auto</string>
+    <string name="None_Sensor">No Attached Sensors</string>
+    <string name="Old_Password">Old Password</string>
+    <string name="New_Password">New Password</string>
+    <string name="Add_New_User">Add New User</string>
+    <string name="Delete_App_Data">Delete App Data</string>
+    <string name="Data_Transfer_Type">Data Transfer Type</string>
+    <string name="Heater">Heater</string>
+    <string name="None_Mode">None</string>
+    <string name="Humidity_Sensor_View">Humidity:</string>
+    <string name="Temperature_Sensor_View">Temperature:</string>
+    <string name="Edit">Edit</string>
+    <string name="Vaporizer">Vaporizer</string>
+    <string name="Circulator">Circulator</string>
+    <string name="Data_Request_txt">The Data Has Been Requested!</string>
+    <string name="light">Light</string>
+    <string name="realy_edit">Realy Edit</string>
+    <string name="relay_number">Relay Number:</string>
+    <string name="realy_type">Realy Type</string>
+    <string name="mechanism">Mechanism</string>
+    <string name="type">Type</string>
+    <string name="apply">Apply</string>
+    <string name="timer_type">Timer Type</string>
+    <string name="connected_sensors">Connected Sensors</string>
+    <string name="start_time">Start Time</string>
+    <string name="set_start_time">Set Start Time</string>
+    <string name="on_duration">ON ِDuration</string>
+    <string name="off_duration">OFF Duration</string>
+    <string name="end_time">End Time</string>
+    <string name="set_end_time">Set End Time</string>
+    <string name="set_on_time">Set ON Time</string>
+    <string name="set_off_time">Set OFF Time</string>
+    <string name="EmailError">There are no email clients installed.</string>
+
+</resources>
