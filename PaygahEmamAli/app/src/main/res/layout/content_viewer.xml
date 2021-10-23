@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ir.MasjedEmamAli.Urmia.activity.ConentViewerActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:id="@+id/quranviewer_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/theme"
+                android:padding="6dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="35sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/quranviewer_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:background="@drawable/theme"
+                android:fontFamily="@font/nabi"
+                android:gravity="left"
+                android:padding="5dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
