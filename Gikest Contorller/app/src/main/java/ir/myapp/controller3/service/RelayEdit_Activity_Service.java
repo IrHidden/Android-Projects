@@ -65,7 +65,7 @@ public class RelayEdit_Activity_Service extends Thread{
             Sensor_Data_Count = db.Sensor_Dao().Data_Count();
             Layout_SelectedSensors.removeAllViews();
             for (int i = 0; i < System_SensorNum; i++) {
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(50, 50);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(130, 130);
                 ToggleButton tg = new ToggleButton(cont);
                 tg.setBackground(cont.getDrawable(R.drawable.circularbtn_theme_pressesstate));
                 tg.setText("S " + (i+1));

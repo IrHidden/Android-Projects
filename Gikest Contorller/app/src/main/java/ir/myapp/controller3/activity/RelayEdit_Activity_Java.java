@@ -20,14 +20,18 @@ import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import java.net.Socket;
 import java.util.Calendar;
 
 import ir.myapp.controller3.R;
 import ir.myapp.controller3.service.RelayEdit_Activity_Service;
 import ir.myapp.controller3.service.SmsSender_Service;
+import ir.myapp.controller3.tools.CommenFuntions;
 import ir.myapp.controller3.tools.TimePicker_Fragment;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static ir.myapp.controller3.tools.CommenFuntions.ControllerIPAdress;
+import static ir.myapp.controller3.tools.CommenFuntions.ControllerPort;
 
 public class RelayEdit_Activity_Java extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
@@ -37,7 +41,7 @@ public class RelayEdit_Activity_Java extends AppCompatActivity implements TimePi
     String TimePicker_Str = null;
 
     Spinner Sp_RelayNum;
-    TextView Txt_RelayNum,Txt_PhoneNum, Txt_TargetNum;
+    TextView Txt_RelayNum, Txt_TargetNum;
     Button Btn_RelayApply, Btn_StartTime, Btn_EndTime, Btn_OnTime, Btn_OffTime;
     ToggleButton Btn_RelayMode;
     Switch Sw_StartTime, Sw_EndTime;
@@ -55,7 +59,6 @@ public class RelayEdit_Activity_Java extends AppCompatActivity implements TimePi
         Sp_RelayNum.setOnItemSelectedListener(Spinner_RelayEdit_SelectedItem);
 
         Txt_RelayNum = findViewById(R.id.txt_relayedit_relaynum);
-        Txt_PhoneNum=findViewById(R.id.txt_phonenum2);
         Txt_TargetNum=findViewById(R.id.txt_relayedit_target);
 
         Btn_RelayMode = findViewById(R.id.btn_relayedit_relaymode);
@@ -175,80 +178,15 @@ public class RelayEdit_Activity_Java extends AppCompatActivity implements TimePi
                     int Selected_Rb_id = Rbg_RelayType.getCheckedRadioButtonId();
                     RadioButton Rb_Selected = findViewById(Selected_Rb_id);
                     Rbg_Text = String.valueOf(Rb_Selected.getText());
-                   String PhoneNum=Txt_PhoneNum.getText().toString();
 
-                    if (Btn_RelayMode.isChecked()) {
-                        StringBuilder Sensor_str = new StringBuilder();
-                        String TargetNum =Txt_TargetNum.getText().toString();
-                        for (int i = 0; i < Layout_Sensors.getChildCount(); i++) {
-                            ToggleButton tg = (ToggleButton) Layout_Sensors.getChildAt(i);
-                            if (tg.isChecked())
-                                Sensor_str.append(i+1).append("-");
-                        }
-                        Sensor_str.deleteCharAt(Sensor_str.length() - 1); //to remove '-' at the end of String
-                        StringBuilder SmsText=new StringBuilder();
-                        SmsText.append(Relay_Number).append(",").append(Sensor_str).append(",").append(TargetNum);
-                        new SmsSender_Service(getApplicationContext(),getIntent(),PhoneNum,SmsText.toString());
-                    } else {
-                        long StartTime, EndTime, OnTime, OffTime;
-                        int Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute;
-                        String temp;
-                        Calendar Time = Calendar.getInstance();
+                    String Data=GetAutomaticApplying();
 
-                        Time_Year = Calendar.getInstance().get(Calendar.YEAR);
-                        Time_Month = Calendar.getInstance().get(Calendar.MONTH);
-                        Time_Day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-
-                        if (Sw_StartTime.isChecked()) {
-                            temp = Btn_StartTime.getText().toString();
-                            Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
-                            Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
-                            Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
-                            StartTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
-                        } else {
-                            StartTime = MILLISECONDS.toSeconds(System.currentTimeMillis());
-                        }
-
-                        if (Sw_EndTime.isChecked()) {
-                            temp = Btn_EndTime.getText().toString();
-                            Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
-                            Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
-                            Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
-                            EndTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
-                        } else {
-                            Time_Hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-                            Time_Minute = Calendar.getInstance().get(Calendar.MINUTE);
-                            Time.set(Time_Year + 1, Time_Month, Time_Day, Time_Hour, Time_Minute);
-                            EndTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
-                        }
-
-                        temp = Btn_OnTime.getText().toString();
-                        Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
-                        Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
-                        Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
-                        OnTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
-
-                        temp = Btn_OffTime.getText().toString();
-                        Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
-                        Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
-                        Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
-                        OffTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
-
-                        StringBuilder Days_str = new StringBuilder();
-                        for (int i = 0; i < Layout_Days.getChildCount(); i++) {
-                            ToggleButton tg = (ToggleButton) Layout_Days.getChildAt(i);
-                            if (tg.isChecked())
-                                Days_str.append(tg.getText()).append("-");
-                        }
-                        Days_str.deleteCharAt(Days_str.length() - 1);
-
-                        StringBuilder SmsText = new StringBuilder();
-                        SmsText.append(Relay_Number).append(",").append(StartTime).append(",").append(EndTime).append(",").append(OnTime).append(",").append(OffTime).append(",").append(Days_str);
-
-
-                        new SmsSender_Service(getApplicationContext(),getIntent(),PhoneNum,SmsText.toString());
-
-                    }
+                    new CommenFuntions().Send_Data(Data);
+//                    if (Btn_RelayMode.isChecked()) {
+//
+//                    } else {
+//                        GetTimeApplying();
+//                    }
                 }
             } catch (Exception e) {
                 Toast.makeText(RelayEdit_Activity_Java.this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -287,6 +225,80 @@ public class RelayEdit_Activity_Java extends AppCompatActivity implements TimePi
             Toast.makeText(RelayEdit_Activity_Java.this, "Maximum of Time is 23:59", Toast.LENGTH_LONG).show();
         }
     }
+    private String GetAutomaticApplying()
+    {
+        StringBuilder Sensor_str = new StringBuilder();
+        String TargetNum =Txt_TargetNum.getText().toString();
+        for (int i = 0; i < Layout_Sensors.getChildCount(); i++) {
+            ToggleButton tg = (ToggleButton) Layout_Sensors.getChildAt(i);
+            if (tg.isChecked())
+                Sensor_str.append(i+1).append("-");
+        }
+        Sensor_str.deleteCharAt(Sensor_str.length() - 1); //to remove '-' at the end of String
+        StringBuilder MsgTxt=new StringBuilder();
+        MsgTxt.append(Relay_Number).append(",").append(Sensor_str).append(",").append(TargetNum);
 
+        return MsgTxt.toString();
+    }
+
+    private String GetTimeApplying()
+    {
+        long StartTime, EndTime, OnTime, OffTime;
+        int Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute;
+        String temp;
+        Calendar Time = Calendar.getInstance();
+
+        Time_Year = Calendar.getInstance().get(Calendar.YEAR);
+        Time_Month = Calendar.getInstance().get(Calendar.MONTH);
+        Time_Day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
+        if (Sw_StartTime.isChecked()) {
+            temp = Btn_StartTime.getText().toString();
+            Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
+            Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
+            Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
+            StartTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
+        } else {
+            StartTime = MILLISECONDS.toSeconds(System.currentTimeMillis());
+        }
+
+        if (Sw_EndTime.isChecked()) {
+            temp = Btn_EndTime.getText().toString();
+            Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
+            Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
+            Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
+            EndTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
+        } else {
+            Time_Hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+            Time_Minute = Calendar.getInstance().get(Calendar.MINUTE);
+            Time.set(Time_Year + 1, Time_Month, Time_Day, Time_Hour, Time_Minute);
+            EndTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
+        }
+
+        temp = Btn_OnTime.getText().toString();
+        Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
+        Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
+        Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
+        OnTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
+
+        temp = Btn_OffTime.getText().toString();
+        Time_Hour = Integer.parseInt(String.valueOf(temp.charAt(0)) + temp.charAt(1));
+        Time_Minute = Integer.parseInt(String.valueOf(temp.charAt(3)) + temp.charAt(4));
+        Time.set(Time_Year, Time_Month, Time_Day, Time_Hour, Time_Minute);
+        OffTime = MILLISECONDS.toSeconds(Time.getTimeInMillis());
+
+        StringBuilder Days_str = new StringBuilder();
+        for (int i = 0; i < Layout_Days.getChildCount(); i++) {
+            ToggleButton tg = (ToggleButton) Layout_Days.getChildAt(i);
+            if (tg.isChecked())
+                Days_str.append(tg.getText()).append("-");
+        }
+        Days_str.deleteCharAt(Days_str.length() - 1);
+
+        StringBuilder MsgTxt = new StringBuilder();
+        MsgTxt.append(Relay_Number).append(",").append(StartTime).append(",").append(EndTime).append(",").append(OnTime).append(",").append(OffTime).append(",").append(Days_str);
+
+        return MsgTxt.toString();
+    }
 
 }

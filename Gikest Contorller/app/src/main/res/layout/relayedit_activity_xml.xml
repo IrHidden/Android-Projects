@@ -60,24 +60,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
-            <EditText
-                android:id="@+id/txt_phonenum2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:enabled="true"
-                android:hint="+98xxxxxxx"
-                android:inputType="phone"
-                android:padding="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textSize="20sp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -261,6 +243,7 @@
                     android:layout_marginEnd="35dp"
                     android:background="@drawable/normalbtn_theme_pressstate"
                     android:checked="true"
+                    android:enabled="false"
                     android:textAllCaps="false"
                     android:textColor="@color/White"
                     android:textOff="@string/Timer"

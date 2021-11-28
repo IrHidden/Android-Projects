@@ -2,10 +2,6 @@ package ir.myapp.controller3.tools;
 
 import android.content.Context;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import ir.myapp.controller3.db.AppDatabase;
 import ir.myapp.controller3.entity.Relay_Struct;
 import ir.myapp.controller3.entity.Sensor_Struct;
@@ -25,7 +21,38 @@ public class  WifiDigest_Func {
     }
 
 
-    private void DigestMsg(char[] Msg_Parts,AppDatabase db)
+    private void DigestMsg(char[] Msg_Parts, AppDatabase db) {
+        //Format Msg Hum,Temp,Hum,Temp,Hum,Temp,RelayState.
+        //for DisConnect 120
+        //for Error 110
+        Sensor_Struct sensor;
+        if (Msg_Parts[0] == 120 || Msg_Parts[1] == 120)
+            sensor = new Sensor_Struct(1, "Disconnected", Msg_Parts[0], Msg_Parts[1], ComFuc.getCurrentTime());
+        else if (Msg_Parts[0] == 110 || Msg_Parts[1] == 110)
+            sensor = new Sensor_Struct(1, "Error", Msg_Parts[0], Msg_Parts[1], ComFuc.getCurrentTime());
+        else
+            sensor = new Sensor_Struct(1, "Normal", Msg_Parts[0], Msg_Parts[1], ComFuc.getCurrentTime());
+        db.Sensor_Dao().Insert(sensor);
+
+
+        if (Msg_Parts[3] == 120 || Msg_Parts[4] == 120)
+            sensor = new Sensor_Struct(2, "Disconnected", Msg_Parts[3], Msg_Parts[4], ComFuc.getCurrentTime());
+        else if (Msg_Parts[3] == 110 || Msg_Parts[4] == 110)
+            sensor = new Sensor_Struct(2, "Error", Msg_Parts[3], Msg_Parts[4], ComFuc.getCurrentTime());
+        else
+            sensor = new Sensor_Struct(2, "Normal", Msg_Parts[3], Msg_Parts[4], ComFuc.getCurrentTime());
+        db.Sensor_Dao().Insert(sensor);
+
+        if (Msg_Parts[6] == 120 || Msg_Parts[7] == 120)
+            sensor = new Sensor_Struct(3, "Disconnected", Msg_Parts[6], Msg_Parts[7], ComFuc.getCurrentTime());
+        else if (Msg_Parts[6] == 110 || Msg_Parts[7] == 110)
+            sensor = new Sensor_Struct(3, "Error", Msg_Parts[6], Msg_Parts[7], ComFuc.getCurrentTime());
+        else
+            sensor = new Sensor_Struct(3, "Normal", Msg_Parts[6], Msg_Parts[7], ComFuc.getCurrentTime());
+        db.Sensor_Dao().Insert(sensor);
+    }
+
+    private void DigestMsg_old(char[] Msg_Parts, AppDatabase db)
     {
         //Format Msg: Hum ( 2 Digit ),Temp ( 2 Digit );state,state,state,state,state.
         //Format Msg: Hum (2 Num),Temp(2 Num);

@@ -45,16 +45,12 @@ public class Relay_Activity_Service extends Thread {
 
     private void Refersher_UiThread() {
         try {
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        RelayActivity_Refresh();
-                    } catch (Exception e) {
+            new Handler(Looper.getMainLooper()).post(() -> {
+                try {
+                    RelayActivity_Refresh();
+                } catch (Exception e) {
 
-                    }
                 }
-
             });
             Thread.sleep(1500);
         } catch (Exception e) {

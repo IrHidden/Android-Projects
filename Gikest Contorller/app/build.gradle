@@ -10,7 +10,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
-        versionName "0.12"
+        versionName "0.13"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,8 +24,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 
@@ -33,11 +33,12 @@ android {
 
 
 dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.0'
     implementation 'androidx.fragment:fragment-ktx:1.3.0-alpha06'
     implementation "androidx.viewpager2:viewpager2:1.0.0"
@@ -46,37 +47,13 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.mediarouter:mediarouter:1.1.0'
+    implementation 'androidx.room:room-runtime:2.3.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-
-    def room_version = "2.2.5"
-
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-
-    // optional - RxJava support for Room
-    implementation "androidx.room:room-rxjava2:$room_version"
-
-    // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation "androidx.room:room-guava:$room_version"
-
-    // optional - Test helpers
-    testImplementation "androidx.room:room-testing:$room_version"
-
-}
-
-
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == "androidx") {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "${targetSdk}.+"
-            }
-        }
-    }
+    implementation 'androidx.room:room-common:2.3.0'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0'
 }

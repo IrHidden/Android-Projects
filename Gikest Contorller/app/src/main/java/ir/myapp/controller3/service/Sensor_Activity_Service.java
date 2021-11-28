@@ -16,7 +16,7 @@ import ir.myapp.controller3.entity.Sensor_Struct;
 import ir.myapp.controller3.entity.System_Struct;
 
 public class Sensor_Activity_Service extends Thread {
-    int System_SensorNum = 1;
+    int System_SensorNum = 3;
     int Sensor_Data_Count = 0;
 
     Context cont;
@@ -41,16 +41,12 @@ public class Sensor_Activity_Service extends Thread {
     }
     private void Refersher_UiThread() {
         try {
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        SensorActivity_Refresh();
-                    } catch (Exception e) {
+            new Handler(Looper.getMainLooper()).post(() -> {
+                try {
+                    SensorActivity_Refresh();
+                } catch (Exception e) {
 
-                    }
                 }
-
             });
             Thread.sleep(1500);
         } catch (Exception e) {

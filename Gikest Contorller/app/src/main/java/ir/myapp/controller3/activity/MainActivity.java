@@ -20,6 +20,8 @@ import androidx.core.content.ContextCompat;
 
 import ir.myapp.controller3.R;
 import ir.myapp.controller3.db.AppDatabase;
+import ir.myapp.controller3.entity.Relay_Struct;
+import ir.myapp.controller3.entity.System_Struct;
 import ir.myapp.controller3.service.MainActivity_Service;
 import ir.myapp.controller3.tools.CommenFuntions;
 import ir.myapp.controller3.tools.DataTransferMethods;
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
         MainRefresh_Service_Thread = new MainActivity_Service.Refresher_Service(getBaseContext(), Temp_Val, Hum_Val, Dash_Relay);
         MainRefresh_Service_Thread.start();
+
+       // ComFuc.StartWifi_Client(getApplicationContext());
+        // Toast.makeText(getApplicationContext(), "Wifi on Port:8888 has been Started", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -160,8 +165,29 @@ public class MainActivity extends AppCompatActivity {
                 ComFuc.SendSms(getApplicationContext(), getIntent(), "+989148225636", "getAll");
                 Toast.makeText(getApplicationContext(), getString(R.string.Data_Request_txt), Toast.LENGTH_SHORT).show();
             } else if (dataTransferring_Type == "Wifi") {
-                ComFuc.StartWifi(getApplicationContext());
-                Toast.makeText(getApplicationContext(), "Wifi on Port:5712 has been Started", Toast.LENGTH_SHORT).show();
+
+                AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+                System_Struct system = new System_Struct("ON",
+                        "in",
+                        5,
+                        "+989214367321",
+                        "+989030755965",
+                        "+989145530400",
+                        1,
+                        5,
+                        "Things",
+                        30,
+                        50 ,
+                        4,
+                        5 );
+
+                //db.System_Dao().Insert(system);
+                //Relay_Struct relay=new Relay_Struct(1,"Normal","Auto ");
+                ComFuc.StartWifi_Client(getApplicationContext());
+                Toast.makeText(getApplicationContext(), "Wifi on Port:8888 has been Started", Toast.LENGTH_SHORT).show();
+
+
+
             }else if(dataTransferring_Type == "Internet")
             {
                 DataTransferMethods p=new DataTransferMethods();
