@@ -16,7 +16,7 @@ public interface Sensor_Dao {
     List<Sensor_Struct> Get_All();
 
     @Query("SELECT * FROM Sensor_Struct WHERE Place= :Place  ORDER BY Data_Num DESC LIMIT 1")
-    Sensor_Struct GetLast_WithPlace(int Place);
+    Sensor_Struct getLast_WithPlace(int Place);
 
     @Query("Delete FROM Sensor_Struct")
     void Delete_All(); //be careful...

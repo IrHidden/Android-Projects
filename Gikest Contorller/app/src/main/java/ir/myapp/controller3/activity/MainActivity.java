@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 import ir.myapp.controller3.R;
 import ir.myapp.controller3.db.AppDatabase;
 import ir.myapp.controller3.entity.Relay_Struct;
+import ir.myapp.controller3.entity.Sensor_Struct;
 import ir.myapp.controller3.entity.System_Struct;
 import ir.myapp.controller3.service.MainActivity_Service;
 import ir.myapp.controller3.tools.CommenFuntions;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     Thread MainRefresh_Service_Thread;
 
-    CommenFuntions ComFuc;
+    CommenFuntions comnFunc;
     SoundEffect_Func ClickSound;
 
 
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(getApplicationContext());
 
-        ComFuc = new CommenFuntions();
+        comnFunc = new CommenFuntions();
         ClickSound=new SoundEffect_Func(getApplicationContext());
 
         MainRefresh_Service_Thread = new MainActivity_Service.Refresher_Service(getBaseContext(), Temp_Val, Hum_Val, Dash_Relay);
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             //Sms Wifi
             String dataTransferring_Type = "Wifi";
             if (dataTransferring_Type == "Sms") {
-                ComFuc.SendSms(getApplicationContext(), getIntent(), "+989148225636", "getAll");
+                comnFunc.SendSms(getApplicationContext(), getIntent(), "+989148225636", "getAll");
                 Toast.makeText(getApplicationContext(), getString(R.string.Data_Request_txt), Toast.LENGTH_SHORT).show();
             } else if (dataTransferring_Type == "Wifi") {
 
@@ -181,9 +182,25 @@ public class MainActivity extends AppCompatActivity {
                         4,
                         5 );
 
-                //db.System_Dao().Insert(system);
-                //Relay_Struct relay=new Relay_Struct(1,"Normal","Auto ");
-                ComFuc.StartWifi_Client(getApplicationContext());
+                for (int i =0; i<5; i++) {
+                    Relay_Struct relay = new Relay_Struct(i+1,
+                            "Heater",
+                            "Auto",
+                            true,
+                            30,
+                            0,
+                            0,
+                            "1-2-3",
+                            comnFunc.getCurrentTime());
+                    db.Relay_Dao().Insert(relay);
+                }
+                for (int i =0;i<3;i++)
+                {
+                    Sensor_Struct sensor=new Sensor_Struct(i+1,"Normal",30,20, comnFunc.getCurrentTime());
+                    db.Sensor_Dao().Insert(sensor);
+                }
+                db.System_Dao().Insert(system);
+                comnFunc.StartWifi_Client(getApplicationContext());
                 Toast.makeText(getApplicationContext(), "Wifi on Port:8888 has been Started", Toast.LENGTH_SHORT).show();
 
 

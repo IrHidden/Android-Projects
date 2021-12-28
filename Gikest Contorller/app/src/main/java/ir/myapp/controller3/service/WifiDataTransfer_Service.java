@@ -45,9 +45,11 @@ public class WifiDataTransfer_Service {
 
                     String Msg = Get_Data(soc);
                     new WifiDigest_Func(Msg,cont); // Digest then InsertData to Database;
-
                     System.out.println(Msg); // Checking Data
-                    Send_Data(soc, new CommenFuntions().GetSystemInfo(cont));
+
+                    Send_Data(soc, new CommenFuntions().getSystemInfo(cont));
+
+                    Send_Data(soc, new CommenFuntions().getRelayInfo(cont));
 
                     sleep(10000);
                 }
@@ -59,6 +61,7 @@ public class WifiDataTransfer_Service {
         }
         public void Send_Data(Socket soc, String Msg)  {
             try {
+                System.out.println("Sending(Wifi): " + Msg);
                 sleep(500);
                 DataOutputStream dos = new DataOutputStream(soc.getOutputStream());
                 dos.write(Msg.getBytes(StandardCharsets.UTF_8));

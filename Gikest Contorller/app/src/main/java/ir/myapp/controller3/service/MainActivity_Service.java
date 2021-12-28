@@ -84,7 +84,7 @@ public class MainActivity_Service {
                         for (int j = 0; j < System_RelayNum; j++) {
                             GifImageView image = new GifImageView(cont);
 
-                            Relay_Struct relay = db.Relay_Dao().GetLast_WithPlace(j + 1);
+                            Relay_Struct relay = db.Relay_Dao().getLast_WithPlace(j + 1);
                             if (relay.Get_Name().equals("None"))
                                 image.setImageResource(R.drawable.white_notselected_png);
                             else if (relay.Get_State()) {

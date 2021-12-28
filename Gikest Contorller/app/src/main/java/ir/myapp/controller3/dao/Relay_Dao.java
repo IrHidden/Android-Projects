@@ -15,7 +15,7 @@ public interface Relay_Dao {
     List<Relay_Struct> Get_All();
 
     @Query("SELECT * FROM Relay_Struct WHERE Place= :Place  ORDER BY Data_Num DESC LIMIT 1")
-    Relay_Struct GetLast_WithPlace(int Place);
+    Relay_Struct getLast_WithPlace(int Place);
 
     @Query("Delete FROM Relay_Struct")
     void Delete_All(); //be careful...

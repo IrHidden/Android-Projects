@@ -1,14 +1,8 @@
 package ir.myapp.controller3.tools;
 
 import android.content.Context;
-import android.util.Log;
 
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import ir.myapp.controller3.db.AppDatabase;
@@ -174,9 +168,9 @@ public class SmsDigest_Func {
                         i += 2;
                         for (int index = 0; index < sens_place.size(); index++) {
                             if (nm=="Vaporizer")
-                                val+=db.Sensor_Dao().GetLast_WithPlace(sens_place.get(index)).Get_ValueH();
+                                val+=db.Sensor_Dao().getLast_WithPlace(sens_place.get(index)).Get_ValueH();
                             else if(nm=="Circulator" || nm=="Heater")
-                                val+=db.Sensor_Dao().GetLast_WithPlace(sens_place.get(index)).Get_ValueT();
+                                val+=db.Sensor_Dao().getLast_WithPlace(sens_place.get(index)).Get_ValueT();
                         }
                         val/=sens_place.size();
                         relay = new Relay_Struct(place++, nm, mode, st, val, val_g, tol, String.valueOf(sens), ComFuc.getCurrentTime());

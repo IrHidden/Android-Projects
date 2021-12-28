@@ -181,7 +181,7 @@ public class RelayEdit_Activity_Java extends AppCompatActivity implements TimePi
 
                     String Data=GetAutomaticApplying();
 
-                    new CommenFuntions().Send_Data(Data);
+
 //                    if (Btn_RelayMode.isChecked()) {
 //
 //                    } else {

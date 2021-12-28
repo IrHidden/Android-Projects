@@ -66,7 +66,7 @@ public class Sensor_Activity_Service extends Thread {
                 View relay_view = Sensor_Inflater.inflate(R.layout.sensor_fragment_view_xml, Sensor_LinearLayout, false);
                 Sensor_LinearLayout.addView(relay_view); // the upper 2 line is to add the new layout par sensor's available
 
-                Sensor_Struct sensor = db.Sensor_Dao().GetLast_WithPlace(i + 1);  //getting info of the related number
+                Sensor_Struct sensor = db.Sensor_Dao().getLast_WithPlace(i + 1);  //getting info of the related number
                 int flag = 0;
                 ViewGroup sensor_veiwgrp = (ViewGroup) Sensor_LinearLayout.getChildAt(i); //converting the newly added layout to apply info
 

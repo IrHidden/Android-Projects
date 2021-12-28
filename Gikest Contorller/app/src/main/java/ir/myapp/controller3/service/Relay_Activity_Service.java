@@ -1,5 +1,7 @@
 package ir.myapp.controller3.service;
 
+import static ir.myapp.controller3.tools.CommenFuntions.RelaysNum;
+
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -17,18 +19,21 @@ import ir.myapp.controller3.R;
 import ir.myapp.controller3.db.AppDatabase;
 import ir.myapp.controller3.entity.Relay_Struct;
 import ir.myapp.controller3.entity.System_Struct;
+import ir.myapp.controller3.tools.CommenFuntions;
 
 public class Relay_Activity_Service extends Thread {
-    int System_RelayNum = 5;
+
+    CommenFuntions comnFunc;
 
     Context cont;
     LayoutInflater Relay_Inflater;
     LinearLayout Relay_LinearLayout;
 
-    int Relay_Data_Count=0;
+    int Relay_Data_Count = 0;
 
     public Relay_Activity_Service(Context cont, LayoutInflater Relay_Inflater, LinearLayout linear_layout) {
         this.cont = cont;
+        comnFunc = new CommenFuntions();
         this.Relay_Inflater = Relay_Inflater;
         this.Relay_LinearLayout = linear_layout;
     }
@@ -62,16 +67,16 @@ public class Relay_Activity_Service extends Thread {
         AppDatabase db = AppDatabase.getInstance(cont);
         System_Struct system = db.System_Dao().GetLast();
 
-        if (db.Relay_Dao().Data_Count()!=Relay_Data_Count) {
-            Relay_Data_Count=db.Relay_Dao().Data_Count();
+        if (db.Relay_Dao().Data_Count() != Relay_Data_Count) {
+            Relay_Data_Count = db.Relay_Dao().Data_Count();
             Relay_LinearLayout.removeAllViews();
 
-            for (int i = 0; i < System_RelayNum; i++) {
+            for (int i = 0; i < RelaysNum; i++) {
                 View relay_view = Relay_Inflater.inflate(R.layout.relay_fragment_view_xml, Relay_LinearLayout, false);
 
                 Relay_LinearLayout.addView(relay_view); // the upper 2 line is to add the new layout par relay's available
 
-                Relay_Struct relay = db.Relay_Dao().GetLast_WithPlace(i + 1);  //getting info of the related number
+                Relay_Struct relay = db.Relay_Dao().getLast_WithPlace(i + 1);  //getting info of the related number
                 int flag = 0;
 
                 ViewGroup relay_veiwgrp = (ViewGroup) Relay_LinearLayout.getChildAt(i); //converting the newly added layout to apply info
@@ -145,9 +150,11 @@ public class Relay_Activity_Service extends Thread {
                                 break;
                             case 2:         //specify the values for being on or off
                                 if (relay.Get_Mode().equals("Auto"))
-                                    txt.setText(relay.Get_Name().equals("Heater") ? relay.Value + "°c  ->  " + relay.Value_G + "°c" : relay.Value + "%  ->  " + relay.Value_G + "%");
+                                    txt.setText(relay.Get_Name().equals("Heater") ?
+                                            comnFunc.getRelayAvg(cont, i + 1, false) + "°c  ->  " + relay.Get_ValueG() + "°c" :
+                                            comnFunc.getRelayAvg(cont, i + 1, true) + "%  ->  " + relay.Get_ValueG() + "%");
                                 else
-                                    txt.setText(relay.Value + "min  -  " + relay.Value_G+"min"  );
+                                    txt.setText(relay.Get_OnTime() + "min  -  " + relay.Get_OffTime() + "min");
 
                                 flag++;
                                 break;

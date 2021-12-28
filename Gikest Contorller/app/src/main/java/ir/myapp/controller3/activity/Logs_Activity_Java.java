@@ -46,9 +46,18 @@ public class Logs_Activity_Java extends AppCompatActivity {
         ArrayList<Relay_Struct> relays = new ArrayList<>(db.Relay_Dao().Get_All());
         for (int i = relays.size() - 1; i >= 0; i--) {
             Relay_Struct relay = relays.get(i);
-            String log_text = relay.Get_DataTime() + " Relay Num: " + relay.Get_Place()
-                    + " Value: " + relay.Get_Value() + " -> " + relay.Get_ValueG()
-                    + " State: " + relay.Get_State();
+            String log_text = null;
+            if (relay.Get_Mode().equals("Auto")) {
+                log_text = relay.Get_DataTime() +
+                        "\nRelay Num: " + relay.Get_Place()
+                        + " Value: " + relay.Get_ValueG()
+                        + " State: " + relay.Get_State() + "\n";
+            } else if (relay.Get_Mode().equals("Auto")) {
+                log_text = relay.Get_DataTime() +
+                        "\nRelay Num: " + relay.Get_Place()
+                        + " Goal Value: " + relay.Get_OnTime() + " " + relay.Get_OffTime()
+                        + " State: " + relay.Get_State() + "\n";
+            }
             TextView View = new TextView(Linear_Relay.getContext());
             View.setText(log_text);
             View.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.White));
@@ -57,15 +66,14 @@ public class Logs_Activity_Java extends AppCompatActivity {
         ArrayList<Sensor_Struct> sensors = new ArrayList<>(db.Sensor_Dao().Get_All());
         for (int i = sensors.size() - 1; i >= 0; i--) {
             Sensor_Struct sensor = sensors.get(i);
-            String log_text = sensor.Get_DataTime() + " Sensor Num: " + sensor.Get_Place()
-                    + " Humidity: " + sensor.Get_ValueH() + " Temperature " + sensor.Get_ValueT();
+            String log_text = sensor.Get_DataTime() + "\nSensor Num: " + sensor.Get_Place()
+                    + " Humidity: " + sensor.Get_ValueH() + " Temperature " + sensor.Get_ValueT() + "\n";
             TextView View = new TextView(Linear_Sensor.getContext());
             View.setText(log_text);
             View.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.White));
             Linear_Sensor.addView(View);
         }
     }
-
     View.OnClickListener Relay_Sensor_Click = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

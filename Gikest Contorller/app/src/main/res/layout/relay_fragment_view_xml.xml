@@ -12,8 +12,8 @@
 
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/Sp_Sensors_atch"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="48dp"
+        android:layout_height="45dp"
         android:entries="@array/Relays"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
