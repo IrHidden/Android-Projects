@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recycler_margin_top">50</dimen>
+    <dimen name="on_off_size">10pt</dimen>
+    <dimen name="value_size">10pt</dimen>
+    <dimen name="dash_cell_height">150dp</dimen>
+    <dimen name="dash_cell_text_size">11pt</dimen>
+    <dimen name="indicator_size">3dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

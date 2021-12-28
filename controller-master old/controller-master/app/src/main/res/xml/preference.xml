@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:dialogTitle="@string/password"
+        android:key="password"
+        android:title="@string/password"
+        android:inputType="number"
+        android:digits="0123456789"
+        android:icon="@drawable/change_password"
+        />
+    <EditTextPreference
+        android:dialogTitle="@string/device_phone_number"
+        android:key="phone_number"
+        android:summary="@string/phone_number_detail"
+        android:title="@string/device_phone_number"
+        android:icon="@drawable/simcard1"/>
+
+    <EditTextPreference
+        android:dialogTitle="@string/audible_phone_numbers"
+        android:key="audible_phone_numbers"
+        android:summary="@string/audible_phone_numbers_detail"
+        android:title="@string/audible_phone_numbers"
+        android:icon="@drawable/simcard2"/>
+    <!--
+    <ListPreference
+        android:dialogTitle="@string/communi_type"
+        android:entries="@array/settings_list_preference_titles"
+        android:entryValues="@array/settings_list_preference_values"
+        android:key="communi_type"
+        android:summary="@string/communi_type_detail"
+        android:title="@string/communi_type"
+        android:defaultValue="1"
+        android:icon="@drawable/envelope"/>
+
+        -->
+
+</PreferenceScreen>

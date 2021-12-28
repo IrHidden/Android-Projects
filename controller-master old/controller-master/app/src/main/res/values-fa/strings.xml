@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">پایش</string>
+    <string name="temperature">دما</string>
+    <string name="light">نور</string>
+    <string name="humidity">رطوبت</string>
+    <string name="sensors">سنسورها</string>
+    <string name="air_conditioning">تهویه هوا</string>
+    <string name="on">روشن</string>
+    <string name="off">خاموش</string>
+    <string name="air_conditioner_slow">کند</string>
+    <string name="air_conditioner_medium">متوسط</string>
+    <string name="air_conditioner_fast">تند</string>
+    <string name="settings">تنظیمات</string>
+    <string name="phone_number">شماره سیم کارت دستگاه</string>
+    <string name="phone_number_detail">شماره سیم کارت دستگاهی که برنامه با آن ارتباط خواهد گرفت</string>
+    <string name="via_sms">از طریق پیامک</string>
+    <string name="via_internet">از طریق اینترنت</string>
+    <string name="communi_type">نوع اتصال</string>
+    <string name="communi_type_detail">ارتباط برنامه با دستگاه از طریق پیامک خواهد بود یا اینترنت</string>
+
+    <string name="settings_activity">تنظیمات</string>
+    <string name="submit">ارسال</string>
+    <string name="heater_is_on">هیتر فعال است</string>
+    <string name="heater_is_off">هیتر غیر فعال است</string>
+
+    <string name="changes">تغییرات اعمال شده</string>
+    <string name="send">ارسال</string>
+    <string name="cancel">انصراف</string>
+    <string name="vapour_is_off">رطوبت ساز خاموش است</string>
+    <string name="vapour_is_on">رطوبت ساز روشن است</string>
+    <string name="start_time">زمان شروع</string>
+    <string name="end_time">زمان پایان</string>
+    <string name="ac_is_off">تهویه هوا غیر فعال است</string>
+    <string name="ac_is_on">تهویه هوا فعال است</string>
+
+    <string name="sensor_number">سنسور </string>
+    <string name="heater">هیتر</string>
+    <string name="vapour">رطوبت ساز</string>
+    <string name="password">رمز عبور</string>
+    <string name="audible_phone_numbers">شماره سیم‌کارت‌های دارای دسترسی تنظیم دستگاه</string>
+    <string name="audible_phone_numbers_detail">این شماره‌ها قابلیت تنظیم دستگاه را خواهند داشت. هر شماره را در خط جداگانه وارد کنید.</string>
+    <string name="ok">تایید</string>
+    <string name="changes_to_be">تنظیماتی که اعمال خواهد شد: </string>
+    <string name="discard">انصراف</string>
+    <string name="power_is_off">برق دستگاه قطع می‌باشد</string>
+    <string name="aboutus">درباره ما</string>
+    <string name="controller">پایش گلخانه</string>
+    <string name="version">نسخه 0.1.0</string>
+    <string name="device_phone_number">شماره سیم‌کارت دستگاه</string>
+    <string name="title_activity_about_us">درباره ما</string>
+    <string name="next">بعدی</string>
+    <string name="previous">قبلی</string>
+    <string name="temperatureHistory">اطلاعات سنسورها در ۲۴ ساعت گذشته</string>
+
+
+</resources>
